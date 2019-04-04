@@ -1,0 +1,6 @@
+database=database1:database2
+tablename=table1:table2
+partition=data1:data2
+partition_column=2019_04_04:2019_04_04
+keycols=id:id
+columns=name1:name1,city:city
