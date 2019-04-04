@@ -98,7 +98,7 @@ def main (args: Array[String]): Unit = {
 
 	//dynamically generate the NONMATCH column criteria for all matching records
 	var op_comp_nonmatch = new StringBuilder("Where ")
-	columns.foreach{col=> var d = col.split(":");(op_comp_nonmatch.append(d(0)).append("comp='NON MATCH' and"))} 
+	columns.foreach{col=> var d = col.split(":");(op_comp_nonmatch.append(d(0)).append("comp='NON MATCH' and "))}
 	op_comp_nonmatch.setLength(op_comp_nonmatch.length()-4)
 
 	var outputstr2 =s"""select a. $key coll
