@@ -87,7 +87,7 @@ def main (args: Array[String]): Unit = {
 	
 	//dynamically generate the MATCHING column criteria for all matching records and write to file
 	var op_comp_match = new StringBuilder ("Where ").
-	columns.foreach{col=> var d = col.split(":");(op_comp_match.append(d(0)).append("_comp='MATCH' and "))} 
+	columns.foreach{col=> var d = col.split(":");(op_comp_match.append(d(0)).append("_comp='MATCH' and ")} 
 	op_comp_match.setLength(op_comp. match.length() -4)
 	var outputstr1 =s"""select 
 	a.$key coll from resultTable a Sop_comp_match"""
