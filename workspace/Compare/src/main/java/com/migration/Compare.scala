@@ -40,7 +40,7 @@ def main (args: Array[String]): Unit = {
 	val conf = new Sparkconf ().setAppName ("appName")
 	val sc = new SparkContext(conf)
 	val sqlContext= new org.apache.spark.sql.SQLContext(sc) 
-	import sqlContext.implicits.
+	import sqlContext.implicits._
 	val hiveContext = new HiveContext(sc) 
 	import hiveContext.implicits._
 
@@ -52,7 +52,8 @@ def main (args: Array[String]): Unit = {
 	
 	//set property value to variables
 	var a = props.getProperty("database") 
-	var db1 = a.split(":") (0) var db2 = a.split(":") (1)
+	var db1 = a.split(":") (0) 
+	var db2 = a.split(":") (1)
 
 	var b = props.getProperty("tablename") 
 	var tbl1 = b.split(":") (0)
@@ -63,11 +64,11 @@ def main (args: Array[String]): Unit = {
 	var part2 = c.split(":") (1)
 	
 	var d = props.getProperty ("partition column") 
-	var part coll= d.split(":") (0)
-	var part co12 = d.split(":") (1)
+	var part_coll= d.split(":") (0)
+	var part_co12 = d.split(":") (1)
 	
-	var partstr = new StringBuilder 
-	partstr.append("where a Spart1= $part coll'lland b.part2= $part col2")
+	var partstr = new StringBuilder() 
+	partstr.append("where a.$part1= $part_col1  and b.part2= $part_col2")
 
 	var e= props.getProperty ("keycols") 
 	var key_col1 = e.split(":")(0) 
@@ -76,7 +77,7 @@ def main (args: Array[String]): Unit = {
 	var f = props.getProperty("columns") 
 	var columns = f.split(",")
 	var casestr= new StringBuilder 
-	columns.foreach(col=> var d = col.split(":");(casestr.append(", case when a.").append(d(0)).append("=b.").append(d(1)).append( END as ").append(d(0)).append("_comp"))}
+	columns.foreach(col=> var d = col.split(":");(casestr.append(", case when a.").append(d(0)).append("=b.").append(d(1)).append( END as ").append(d(0)).append("_comp"))
 
 	//getting records that match in both tables 
 	var inputstr = s"select a.$key col1 $casestr from $db1.$tbl1 a join $db2.$tb12 b on (a.$key coll=b.$key_co12) $partstr
